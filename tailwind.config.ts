@@ -16,7 +16,6 @@ const config: Config = {
       colors: {
         firstColor: "#eeeeee",
         secondColor: "#f8e494",
-        pink: "#ef7998",
       },
     },
   },
