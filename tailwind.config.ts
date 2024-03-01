@@ -9,13 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        parallax: `url("https://ecommerce-test-bucket-2024.s3.eu-central-1.amazonaws.com/hero-bcg.jpeg")`,
       },
       colors: {
         firstColor: "#eeeeee",
-        secondColor: "#f8e494",
+        secondColor: "#f09d51",
+      },
+      fontSize: {
+        mainMobFont: "1.1rem",
+        mainDeskFont: "1.225rem",
+        mobileTitle: "1.6rem",
+        deskTitle: "1.9rem",
+        strongMobTitle: "2.2rem",
+        strongDeskTitle: "2.5rem",
+        paragraphMob: "0.85rem",
+        paragraphDesk: "1.125rem",
       },
     },
   },
