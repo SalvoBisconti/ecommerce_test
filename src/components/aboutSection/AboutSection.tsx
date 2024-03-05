@@ -1,16 +1,25 @@
 import Button from "../button";
+import { motion, useAnimation } from "framer-motion";
+import SquareWithPhoto from "../squareWithPhoto";
 
 const AboutSection = () => {
   return (
     <div className="flex flex-col md:flex-row-reverse  md:w-[88%] md:self-center py-8">
       <div className="flex flex-col">
         <div className="relative self-center ">
-          <img
+          {/* <img
             src="https://ecommerce-test-bucket-2024.s3.eu-central-1.amazonaws.com/product-6.jpeg"
             alt="square image"
             className="w-[60vw] h-[50vw] md:h-[22vw] md:w-[40vw] object-cover "
           />
-          <div className="w-[60vw] h-[50vw] md:h-[22vw] md:w-[40vw] border-4 border-secondColor absolute -top-4 -left-4	"></div>
+          <motion.div
+            animate={{ x: 100 }}
+            initial={{ x: 0 }}
+            className="absolute top-0"
+          >
+            <div className="w-[60vw] h-[50vw] md:h-[22vw] md:w-[40vw] border-4 border-secondColor absolute -top-4 -left-4	"></div>
+          </motion.div> */}
+          <SquareWithPhoto url="https://ecommerce-test-bucket-2024.s3.eu-central-1.amazonaws.com/product-6.jpeg" />
         </div>
       </div>
       <div className="flex flex-col gap-4 border-2 border-red-600 p-4 md:w-[75vw]">
