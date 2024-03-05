@@ -8,11 +8,13 @@ import { useState } from "react";
 
 export default function Home() {
   const [openModal, setOpenModal] = useState<boolean>(false);
+  const onHandleChangeStatus = () => setOpenModal((prev) => !prev);
+
   return (
     <main className="flex flex-col">
-      <Header setOpenModal={setOpenModal} />
+      <Header onHandleChangeStatus={onHandleChangeStatus} />
       <Hero />
-      <Cart openModal={openModal} />
+      <Cart openModal={openModal} onHandleChangeStatus={onHandleChangeStatus} />
       <AboutSection />
       <ProductSection />
     </main>
