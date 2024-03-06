@@ -1,35 +1,61 @@
+import { Dispatch } from "react";
 import Button from "../button";
 import CardCart from "../cardCart";
 
-const Cart = (props: { openModal: boolean; onHandleChangeStatus: any }) => {
-  const { openModal, onHandleChangeStatus } = props;
+const Cart = (props: {
+  openModal: boolean;
+  onHandleChangeStatus: any;
+  cartCardData: any;
+  setCartCardData: Dispatch<React.SetStateAction<any>>;
+}) => {
+  const { openModal, onHandleChangeStatus, cartCardData, setCartCardData } =
+    props;
   const buttonNames: string[] = ["Delete", "Buy"];
+  let summ: number = 0;
+
+  cartCardData && cartCardData.map((element: any) => (summ += element.price));
 
   return (
     <div
       className={`  ${
-        openModal ? "top-[70px]" : "top-[-1000px]"
-      }  w-screen h-full fixed top-[0px] z-40`}
+        openModal ? "top-0" : "top-[-1000px]"
+      }  w-screen  fixed top-[0px] z-30 `}
     >
       <div
         className={`${
           openModal ? "top-[70px]" : "top-[-1000px]"
-        }  w-full min-h-[150px]  bg-white absolute transition-all duration-1000 flex  flex-col justify-center items-center gap-3 z-40 py-4`}
+        }  w-full min-h-[150px] max-h-[550px] overflow-y-scroll bg-white absolute transition-all duration-1000 flex  flex-col justify-center items-center gap-3 z-40 py-4 shadow shadow-secondColor`}
       >
-        <CardCart />
-        <h3>Total: </h3>
-        <div className="flex gap-4">
-          {buttonNames.map((element, index) => (
-            <Button
-              text={element}
-              key={index + 1}
-              width=""
-              textColor=""
-              fontSize=""
-            />
-          ))}
-        </div>
+        {cartCardData.length > 0 ? (
+          <>
+            {cartCardData.length > 0 &&
+              cartCardData.map((element: any, i: number) => (
+                <CardCart
+                  data={element}
+                  key={i}
+                  setCartCardData={setCartCardData}
+                  cartCardData={cartCardData}
+                />
+              ))}
+
+            <h3>Total: $ {summ}</h3>
+            <div className="flex gap-4">
+              {buttonNames.map((element, index) => (
+                <Button
+                  text={element}
+                  key={index + 1}
+                  width=""
+                  textColor=""
+                  fontSize=""
+                />
+              ))}
+            </div>
+          </>
+        ) : (
+          <h3 className="italic ">... empty cart</h3>
+        )}
       </div>
+
       <div
         className={`${
           openModal ? "block" : "hidden"

@@ -1,7 +1,14 @@
 import Filter from "../filter";
 import SearchEl from "../searchEl";
 import ProductList from "../productList";
-const ProductSection = () => {
+import { Dispatch } from "react";
+
+const ProductSection = (props: {
+  setCartInArray: Dispatch<React.SetStateAction<any>>;
+  setRefresh: Dispatch<React.SetStateAction<any>>;
+  cartCardData: any;
+}) => {
+  const { setCartInArray, setRefresh, cartCardData } = props;
   return (
     <div className="flex flex-col gap-6 justify-center items-center ">
       <h3 className="text-mobileTitle md:text-deskTitle font-bold">
@@ -12,7 +19,11 @@ const ProductSection = () => {
       </h3>
       <Filter />
       <SearchEl />
-      <ProductList />
+      <ProductList
+        setCartInArray={setCartInArray}
+        setRefresh={setRefresh}
+        cartCardData={cartCardData}
+      />
     </div>
   );
 };

@@ -1,8 +1,21 @@
 import { FaCartShopping } from "react-icons/fa6";
 import { productType } from "@/mocks/types";
+import { Dispatch } from "react";
 
-const Card = (props: { data: productType }) => {
-  const { data } = props;
+const Card = (props: {
+  data: productType;
+  setCartInArray: Dispatch<React.SetStateAction<any>>;
+  setRefresh: Dispatch<React.SetStateAction<any>>;
+  cartCardData: any;
+}) => {
+  const { data, setCartInArray, setRefresh, cartCardData } = props;
+
+  const onHandleAddToCart = (element: any) => {
+    setRefresh((prev: any) => !prev);
+    setCartInArray((prev: any) => [...prev, element]);
+    localStorage.setItem("cart", JSON.stringify([...cartCardData, element]));
+  };
+
   return (
     <div className="border border-grey-300 h-[300px] w-[300px] relative flex flex-col rounded ">
       <div className="overflow-hidden w-full h-full rounded ">
@@ -16,7 +29,18 @@ const Card = (props: { data: productType }) => {
         <h3>{data.fields.title}</h3>
         <h3> $ {data.fields.price}</h3>
         <div className="absolute -top-11 right-0 rounded-tl-[12px] bg-secondColor p-3 cursor-pointer transition-all duration-500 hover:text-white  ">
-          <FaCartShopping className="text-xl" />
+          <FaCartShopping
+            className="text-xl"
+            onClick={() =>
+              onHandleAddToCart({
+                id: data.sys.id,
+                name: data.fields.title,
+                price: data.fields.price,
+                image: data.fields.image.fields.file.url,
+                quantity: 1,
+              })
+            }
+          />
         </div>
       </div>
     </div>
