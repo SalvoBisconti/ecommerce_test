@@ -4,7 +4,7 @@ import SquareWithPhoto from "../squareWithPhoto";
 
 const AboutSection = () => {
   return (
-    <div className="flex flex-col md:flex-row-reverse  md:w-[100%] justify-center md:gap-14 md:self-center py-8">
+    <div className="flex flex-col md:flex-row-reverse  md:w-[100%] justify-center md:gap-14 md:self-center py-20">
       <div className="flex flex-col">
         <div className="relative self-center ">
           {/* <img
