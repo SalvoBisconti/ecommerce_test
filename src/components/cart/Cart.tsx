@@ -1,25 +1,27 @@
 import { Dispatch } from "react";
 import Button from "../button";
 import CardCart from "../cardCart";
+import { cartProductType } from "@/mocks/types";
 
 const Cart = (props: {
   openModal: boolean;
   onHandleChangeStatus: any;
-  cartCardData: any;
-  setCartCardData: Dispatch<React.SetStateAction<any>>;
+  cartCardData: cartProductType[];
+  setCartCardData: Dispatch<React.SetStateAction<cartProductType[]>>;
 }) => {
   const { openModal, onHandleChangeStatus, cartCardData, setCartCardData } =
     props;
   const buttonNames: string[] = ["Delete", "Buy"];
   let summ: number = 0;
 
-  cartCardData && cartCardData.map((element: any) => (summ += element.price));
+  cartCardData &&
+    cartCardData.map((element: cartProductType) => (summ += element.price));
 
   return (
     <div
       className={`  ${
         openModal ? "top-0" : "top-[-1000px]"
-      }  w-screen  fixed top-[0px] z-30 `}
+      }  w-screen  fixed top-[0px] z-30  `}
     >
       <div
         className={`${
@@ -29,7 +31,7 @@ const Cart = (props: {
         {cartCardData.length > 0 ? (
           <>
             {cartCardData.length > 0 &&
-              cartCardData.map((element: any, i: number) => (
+              cartCardData.map((element: cartProductType, i: number) => (
                 <CardCart
                   data={element}
                   key={i}
@@ -38,7 +40,7 @@ const Cart = (props: {
                 />
               ))}
 
-            <h3>Total: $ {summ}</h3>
+            <h3>Total: $ {summ.toFixed(2)}</h3>
             <div className="flex gap-4">
               {buttonNames.map((element, index) => (
                 <Button
@@ -52,7 +54,7 @@ const Cart = (props: {
             </div>
           </>
         ) : (
-          <h3 className="italic ">... empty cart</h3>
+          <h3 className="italic text-gray-400 ">... empty cart</h3>
         )}
       </div>
 

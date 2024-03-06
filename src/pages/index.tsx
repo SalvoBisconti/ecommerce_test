@@ -3,14 +3,14 @@ import Header from "@/components/header";
 import Hero from "@/components/hero";
 import ProductSection from "@/components/productSection";
 import Cart from "@/components/cart";
-
+import { cartProductType } from "@/mocks/types";
 import { useState, useEffect } from "react";
 
 export default function Home() {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [cartInArray, setCartInArray] = useState<any>([]);
   const [refresh, setRefresh] = useState(false);
-  const [cartCardData, setCartCardData] = useState<any>([]);
+  const [cartCardData, setCartCardData] = useState<cartProductType[]>([]);
 
   const onHandleChangeStatus = () => setOpenModal((prev) => !prev);
 

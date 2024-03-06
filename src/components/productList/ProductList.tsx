@@ -2,11 +2,11 @@ import Card from "../card";
 import { GET } from "@/utils/funcs";
 import { Dispatch, useEffect, useState } from "react";
 import { productType } from "@/mocks/types";
-
+import { cartProductType } from "@/mocks/types";
 const ProductList = (props: {
-  setCartInArray: Dispatch<React.SetStateAction<any>>;
-  setRefresh: Dispatch<React.SetStateAction<any>>;
-  cartCardData: any;
+  setCartInArray: Dispatch<React.SetStateAction<cartProductType[]>>;
+  setRefresh: Dispatch<React.SetStateAction<boolean>>;
+  cartCardData: cartProductType[];
 }) => {
   const { setCartInArray, setRefresh, cartCardData } = props;
 
@@ -16,7 +16,7 @@ const ProductList = (props: {
   }, []);
 
   return (
-    <div className="flex justify-center flex-wrap gap-8">
+    <div className="flex justify-center flex-wrap gap-8 py-6">
       {productsData.map((element) => (
         <Card
           data={element}

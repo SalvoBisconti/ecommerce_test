@@ -1,17 +1,19 @@
 import { Dispatch } from "react";
 import { FaTrash } from "react-icons/fa";
-
+import { cartProductType } from "@/mocks/types";
 const CardCart = (props: {
-  data: any;
-  setCartCardData: Dispatch<React.SetStateAction<any>>;
-  cartCardData: any;
+  data: cartProductType;
+  setCartCardData: Dispatch<React.SetStateAction<cartProductType[]>>;
+  cartCardData: cartProductType[];
 }) => {
   const { data, setCartCardData, cartCardData } = props;
   const onHandleDelete = () => {
     setCartCardData(
-      cartCardData.filter((element: any) => element.id != data.id)
+      cartCardData.filter((element: cartProductType) => element.id != data.id)
     );
+    localStorage.setItem("cart", JSON.stringify(cartCardData));
   };
+
   return (
     <div className="flex justify-evenly items-center shadow shadow-firstColor p-2 w-full">
       <img

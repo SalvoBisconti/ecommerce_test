@@ -1,18 +1,19 @@
 import { FaCartShopping } from "react-icons/fa6";
 import { productType } from "@/mocks/types";
 import { Dispatch } from "react";
+import { cartProductType } from "@/mocks/types";
 
 const Card = (props: {
   data: productType;
-  setCartInArray: Dispatch<React.SetStateAction<any>>;
+  setCartInArray: Dispatch<React.SetStateAction<cartProductType[]>>;
   setRefresh: Dispatch<React.SetStateAction<any>>;
-  cartCardData: any;
+  cartCardData: cartProductType[];
 }) => {
   const { data, setCartInArray, setRefresh, cartCardData } = props;
 
-  const onHandleAddToCart = (element: any) => {
+  const onHandleAddToCart = (element: cartProductType) => {
     setRefresh((prev: any) => !prev);
-    setCartInArray((prev: any) => [...prev, element]);
+    setCartInArray((prev: cartProductType[]) => [...prev, element]);
     localStorage.setItem("cart", JSON.stringify([...cartCardData, element]));
   };
 

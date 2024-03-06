@@ -1,7 +1,10 @@
 import { FaPhone } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
-
-const Header = (props: { onHandleChangeStatus: any; cartCardData: any }) => {
+import { cartProductType } from "@/mocks/types";
+const Header = (props: {
+  onHandleChangeStatus: any;
+  cartCardData: cartProductType[];
+}) => {
   const { onHandleChangeStatus, cartCardData } = props;
 
   return (
@@ -10,27 +13,30 @@ const Header = (props: { onHandleChangeStatus: any; cartCardData: any }) => {
         src="https://ecommerce-test-bucket-2024.s3.eu-central-1.amazonaws.com/logo.svg"
         alt="logo"
       />
-      <div className="w-[15vw] md:w-[23vw] flex justify-between items-center mr-14 [&>*]:text-mainDeskFont [&>*]:cursor-pointer">
+      <div className="w-[18vw] md:w-[22vw] flex justify-between items-center md:mr-12 [&>*]:text-mainDeskFont [&>*]:cursor-pointer ">
         <h2
-          className="flex gap-2 items-center "
+          className="flex gap-2 items-center hover:text-secondColor transition-all duration-300 "
           onClick={() => window.open("tel: +123 456 789")}
         >
-          <FaPhone />
-          <span className="text-mainMobFont hidden md:flex"> +123 456 789</span>
+          <FaPhone className="text-[22px]" />
+          <span className="text-mainMobFont hidden md:flex ">
+            {" "}
+            +123 456 789
+          </span>
         </h2>
         <h2
-          className="flex gap-2 items-center md:border border-black p-2 rounded relative "
+          className="flex gap-2 items-center md:border border-black p-2 rounded relative md:hover:bg-secondColor hover:border-secondColor hover:text-secondColor md:hover:text-white  transition-all duration-300 group "
           onClick={onHandleChangeStatus}
         >
           <div
             className={` ${
-              cartCardData.length > 0 ? "absolute" : "hidden"
-            } -top-2 -right-1 rounded-full bg-secondColor px-2 py-1 text-[10px] font-semibold`}
+              cartCardData.length > 0 ? "absolute md:hidden" : "hidden"
+            } -top-2 -right-1 rounded-full bg-secondColor px-2 py-1 text-[10px] font-semibold group-hover:text-secondColor group-hover:bg-black transition-all duration-300`}
           >
             {" "}
             {cartCardData.length}
           </div>
-          <FaCartShopping />
+          <FaCartShopping className="text-[24px]" />
           <span className="text-mainMobFont hidden md:flex">
             {" - "}
             {cartCardData.length < 0

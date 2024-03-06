@@ -2,15 +2,15 @@ import Filter from "../filter";
 import SearchEl from "../searchEl";
 import ProductList from "../productList";
 import { Dispatch } from "react";
-
+import { cartProductType } from "@/mocks/types";
 const ProductSection = (props: {
-  setCartInArray: Dispatch<React.SetStateAction<any>>;
-  setRefresh: Dispatch<React.SetStateAction<any>>;
-  cartCardData: any;
+  setCartInArray: Dispatch<React.SetStateAction<cartProductType[]>>;
+  setRefresh: Dispatch<React.SetStateAction<boolean>>;
+  cartCardData: cartProductType[];
 }) => {
   const { setCartInArray, setRefresh, cartCardData } = props;
   return (
-    <div className="flex flex-col gap-6 justify-center items-center ">
+    <div className="flex flex-col gap-6 justify-center items-center bg-firstColor ">
       <h3 className="text-mobileTitle md:text-deskTitle font-bold">
         Our{" "}
         <span className="text-strongMobTitle md:text-strongDeskTitle font-black text-secondColor">

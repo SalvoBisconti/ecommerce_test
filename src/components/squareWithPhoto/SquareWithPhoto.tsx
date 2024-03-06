@@ -41,10 +41,8 @@ const SquareWithPhoto = (props: { url: string }) => {
         id="photo"
         src={url}
         alt="Photo"
-        className="block object-cover z-20"
+        className="block object-cover z-20 w-[300px] h-[300px]"
         style={{
-          width: "300px",
-          height: "300px",
           marginBottom: `${scrollY / 5}px`,
         }}
       />
