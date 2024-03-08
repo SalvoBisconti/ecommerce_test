@@ -1,6 +1,7 @@
 import { Dispatch } from "react";
 import { FaTrash } from "react-icons/fa";
 import { cartProductType } from "@/mocks/types";
+
 const CardCart = (props: {
   data: cartProductType;
   setCartCardData: Dispatch<React.SetStateAction<cartProductType[]>>;

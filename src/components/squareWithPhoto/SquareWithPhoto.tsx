@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
 const SquareWithPhoto = (props: { url: string }) => {
   const { url } = props;
@@ -10,14 +10,12 @@ const SquareWithPhoto = (props: { url: string }) => {
       const position = window.scrollY;
       setScrollPosition(position);
     };
-
     window.addEventListener("scroll", handleScroll);
 
-    // Cleanup function to remove the event listener when the component unmounts
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []); // Empty dependency array ensures that this effect runs only once
+  }, []);
 
   useEffect(() => {
     if (scrollPosition >= 100 && !animationStarted) {
@@ -25,7 +23,6 @@ const SquareWithPhoto = (props: { url: string }) => {
     }
   }, [scrollPosition, animationStarted]);
 
-  // Calculate the translateX value based on the scroll position
   const translateX = animationStarted
     ? `${0 + (scrollPosition - 100) / 40}%`
     : "50%";

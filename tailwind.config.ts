@@ -26,16 +26,6 @@ const config: Config = {
         paragraphMob: "0.85rem",
         paragraphDesk: "1.125rem",
       },
-      animations: {
-        slideIn: {
-          from: {
-            transform: "translateX(-100px) translateY(-100px)",
-          },
-          to: {
-            transform: "translateX(0) translateY(0)",
-          },
-        },
-      },
     },
   },
   plugins: [],

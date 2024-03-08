@@ -1,6 +1,7 @@
 import { FaPhone } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import { cartProductType } from "@/mocks/types";
+
 const Header = (props: {
   onHandleChangeStatus: any;
   cartCardData: cartProductType[];

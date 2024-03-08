@@ -3,6 +3,7 @@ import { GET } from "@/utils/funcs";
 import { Dispatch, useEffect, useState } from "react";
 import { productType } from "@/mocks/types";
 import { cartProductType } from "@/mocks/types";
+
 const ProductList = (props: {
   setCartInArray: Dispatch<React.SetStateAction<cartProductType[]>>;
   setRefresh: Dispatch<React.SetStateAction<boolean>>;
