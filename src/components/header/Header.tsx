@@ -7,18 +7,22 @@ const Header = (props: {
 }) => {
   const { onHandleChangeStatus, cartCardData } = props;
 
+  let summ: number = 0;
+  cartCardData &&
+    cartCardData.map((element: cartProductType) => (summ += element.price));
+
   return (
     <div className="h-[70px] flex justify-between items-center bg-white p-5 z-50 fixed w-screen shadow shadow-firstColor ">
       <img
         src="https://ecommerce-test-bucket-2024.s3.eu-central-1.amazonaws.com/logo.svg"
         alt="logo"
       />
-      <div className="w-[18vw] md:w-[22vw] flex justify-between items-center md:mr-12 [&>*]:text-mainDeskFont [&>*]:cursor-pointer ">
+      <div className="w-[18vw] md:w-[35vw] lg:w-[26vw] xl:w-[24vw] flex justify-between items-center md:mr-12 [&>*]:text-mainDeskFont [&>*]:cursor-pointer ">
         <h2
           className="flex gap-2 items-center hover:text-secondColor transition-all duration-300 "
           onClick={() => window.open("tel: +123 456 789")}
         >
-          <FaPhone className="text-[22px]" />
+          <FaPhone className="text-[22px] md:text-[18px]" />
           <span className="text-mainMobFont hidden md:flex ">
             {" "}
             +123 456 789
@@ -36,14 +40,13 @@ const Header = (props: {
             {" "}
             {cartCardData.length}
           </div>
-          <FaCartShopping className="text-[24px]" />
+          <FaCartShopping className="text-[24px] md:text-[19px]" />
           <span className="text-mainMobFont hidden md:flex">
-            {" - "}
-            {cartCardData.length < 0
+            {cartCardData.length == 0
               ? "Empty cart"
               : `${cartCardData.length} ${
                   cartCardData.length == 1 ? "item" : "items"
-                }`}{" "}
+                } - ${summ} $`}
           </span>
         </h2>
       </div>

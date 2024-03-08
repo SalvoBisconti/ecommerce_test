@@ -3,6 +3,7 @@ import SearchEl from "../searchEl";
 import ProductList from "../productList";
 import { Dispatch } from "react";
 import { cartProductType } from "@/mocks/types";
+
 const ProductSection = (props: {
   setCartInArray: Dispatch<React.SetStateAction<cartProductType[]>>;
   setRefresh: Dispatch<React.SetStateAction<boolean>>;

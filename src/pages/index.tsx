@@ -11,6 +11,7 @@ export default function Home() {
   const [cartInArray, setCartInArray] = useState<any>([]);
   const [refresh, setRefresh] = useState(false);
   const [cartCardData, setCartCardData] = useState<cartProductType[]>([]);
+  // const [searchedEl, setSearchedEl] = useState<string>();
 
   const onHandleChangeStatus = () => setOpenModal((prev) => !prev);
 
@@ -44,6 +45,8 @@ export default function Home() {
         cartCardData={cartCardData}
         setCartInArray={setCartInArray}
         setRefresh={setRefresh}
+        // setSearchedEl={setSearchedEl}
+        // searchedEl={searchedEl}
       />
     </main>
   );

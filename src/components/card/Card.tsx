@@ -15,6 +15,7 @@ const Card = (props: {
     setRefresh((prev: any) => !prev);
     setCartInArray((prev: cartProductType[]) => [...prev, element]);
     localStorage.setItem("cart", JSON.stringify([...cartCardData, element]));
+    alert("Added to cart");
   };
 
   return (
@@ -27,18 +28,19 @@ const Card = (props: {
         />
       </div>
       <div className="flex justify-between p-5  bottom-0 bg-white w-full font-semibold relative">
-        <h3>{data.fields.title}</h3>
+        <h3>
+          {data.fields.title[0].toLocaleUpperCase() +
+            data.fields.title.substring(1, data.fields.title.length)}
+        </h3>
         <h3> $ {data.fields.price}</h3>
-        <div className="absolute -top-11 right-0 rounded-tl-[12px] bg-secondColor p-3 cursor-pointer transition-all duration-500 hover:text-white  ">
+        <div className="absolute -top-10 right-0 rounded-tl-[12px] bg-secondColor p-3 cursor-pointer transition-all duration-500 hover:text-white  ">
           <FaCartShopping
-            className="text-xl"
             onClick={() =>
               onHandleAddToCart({
                 id: data.sys.id,
                 name: data.fields.title,
                 price: data.fields.price,
                 image: data.fields.image.fields.file.url,
-                quantity: 1,
               })
             }
           />

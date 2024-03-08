@@ -2,15 +2,16 @@ const Button = (props: {
   text: string;
   fontSize: string;
   textColor: string;
-  width: string;
+  func: any | null;
 }) => {
-  const { text, fontSize, textColor, width } = props;
+  const { text, fontSize, textColor, func } = props;
+
   return (
     <button
-      className={`px-[8px] py-[4px] border-2 border-black hover:bg-black hover:text-secondColor ${fontSize} ${textColor} ${width}`}
-      onClick={() => localStorage.removeItem("cart")}
+      className={`w-fit px-[8px] py-[4px] border-2 border-black hover:bg-secondColor hover:text-white rounded ${fontSize} ${textColor}`}
+      onClick={func}
     >
-      {text}
+      {text.toUpperCase()}
     </button>
   );
 };

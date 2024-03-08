@@ -1,56 +1,48 @@
-import React, { useState, useEffect } from "react";
-
-interface Offset {
-  x: number;
-  y: number;
-}
+import React, { useState, useEffect, useRef } from "react";
 
 const SquareWithPhoto = (props: { url: string }) => {
   const { url } = props;
-  const [scrollY, setScrollY] = useState(0);
-  const [offset, setOffset] = useState({ right: 0, bottom: 0 });
+  const [scrollPosition, setScrollPosition] = useState<number>(0);
+  const [animationStarted, setAnimationStarted] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      const position = window.scrollY;
+      setScrollPosition(position);
     };
 
     window.addEventListener("scroll", handleScroll);
 
+    // Cleanup function to remove the event listener when the component unmounts
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, []); // Empty dependency array ensures that this effect runs only once
 
   useEffect(() => {
-    const imageRect = document.getElementById("photo")?.getBoundingClientRect();
-    const viewportHeight = window.innerHeight;
-    const diffY = (viewportHeight - (imageRect?.height ?? 0)) / 2;
-    const diffX = (window.innerWidth - (imageRect?.width ?? 0)) / 2;
+    if (scrollPosition >= 100 && !animationStarted) {
+      setAnimationStarted(true);
+    }
+  }, [scrollPosition, animationStarted]);
 
-    const maxScroll = imageRect!.height - viewportHeight;
-
-    const right = diffX;
-    const bottom = diffY + Math.min(maxScroll, scrollY);
-    setOffset({ right, bottom });
-  }, [scrollY]);
+  // Calculate the translateX value based on the scroll position
+  const translateX = animationStarted
+    ? `${0 + (scrollPosition - 100) / 40}%`
+    : "50%";
 
   return (
-    <div className="relative">
+    <>
       <img
         id="photo"
         src={url}
         alt="Photo"
-        className="block relative object-cover z-30 w-[300px] h-[300px]"
-        // style={{
-        //   marginBottom: `${scrollY / 5}px`,
-        // }}
+        className="block relative object-cover z-20 w-[300px] h-[260px] md:w-[360px] md:h-[300px]"
       />
       <div
-        className={`absolute -top-12 right-20 border-4 border-secondColor w-[300px] h-[300px] transition-all z-20 `}
+        style={{ transform: `translateX(${translateX})` }}
+        className={`absolute -top-12 right-20 border-4 border-secondColor w-[300px] h-[260px] md:w-[360px] md:h-[300px] z-10 animate-slideIn`}
       ></div>
-    </div>
+    </>
   );
 };
-
 export default SquareWithPhoto;

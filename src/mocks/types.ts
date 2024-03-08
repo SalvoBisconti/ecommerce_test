@@ -20,5 +20,4 @@ export interface cartProductType {
   name: string;
   price: number;
   image: string;
-  quantity: number;
 }

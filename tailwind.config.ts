@@ -21,9 +21,20 @@ const config: Config = {
         mobileTitle: "1.6rem",
         deskTitle: "1.9rem",
         strongMobTitle: "2.2rem",
-        strongDeskTitle: "2.5rem",
+        strongDeskTitle: "2.40rem",
+        veryStrongDeskTitle: "3.1rem",
         paragraphMob: "0.85rem",
         paragraphDesk: "1.125rem",
+      },
+      animations: {
+        slideIn: {
+          from: {
+            transform: "translateX(-100px) translateY(-100px)",
+          },
+          to: {
+            transform: "translateX(0) translateY(0)",
+          },
+        },
       },
     },
   },

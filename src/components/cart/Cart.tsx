@@ -17,16 +17,21 @@ const Cart = (props: {
   cartCardData &&
     cartCardData.map((element: cartProductType) => (summ += element.price));
 
+  const onClickClearCart = (text: string) => {
+    if (text == "Delete") {
+      setCartCardData([]);
+      localStorage.removeItem("cart");
+    }
+  };
+
   return (
-    <div
-      className={`  ${
-        openModal ? "top-0" : "top-[-1000px]"
-      }  w-screen  fixed top-[0px] z-30  `}
-    >
+    <div className={`w-screen fixed top-[0px] z-30`}>
       <div
         className={`${
-          openModal ? "top-[70px]" : "top-[-1000px]"
-        }  w-full min-h-[150px] max-h-[550px] overflow-y-scroll bg-white absolute transition-all duration-1000 flex  flex-col justify-center items-center gap-3 z-40 py-4 shadow shadow-secondColor`}
+          openModal
+            ? " right-0 "
+            : " md:top-[70px] right-[-1000px] [transform:rotateX(360deg)] "
+        }  w-full min-h-[150px] top-[70px] max-h-[550px] md:w-[33vw] overflow-y-scroll bg-white absolute transition-all duration-1000 ease-in-out flex flex-col justify-center items-center gap-3 z-40 py-4 shadow shadow-secondColor`}
       >
         {cartCardData.length > 0 ? (
           <>
@@ -46,9 +51,9 @@ const Cart = (props: {
                 <Button
                   text={element}
                   key={index + 1}
-                  width=""
                   textColor=""
                   fontSize=""
+                  func={() => onClickClearCart(element)}
                 />
               ))}
             </div>
