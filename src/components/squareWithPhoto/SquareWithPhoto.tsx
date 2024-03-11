@@ -27,6 +27,10 @@ const SquareWithPhoto = (props: { url: string }) => {
     ? `${0 + (scrollPosition - 100) / 40}%`
     : "50%";
 
+  const translateY = animationStarted
+    ? `${0 + (scrollPosition - 100) / 60}%`
+    : "50%";
+
   return (
     <>
       <img
@@ -36,7 +40,9 @@ const SquareWithPhoto = (props: { url: string }) => {
         className="block relative object-cover z-20 w-[300px] h-[260px] md:w-[360px] md:h-[300px]"
       />
       <div
-        style={{ transform: `translateX(${translateX})` }}
+        style={{
+          transform: `translateX(${translateX}) translateY(${translateY}) `,
+        }}
         className={`absolute -top-12 right-20 border-4 border-secondColor w-[300px] h-[260px] md:w-[360px] md:h-[300px] z-10 animate-slideIn`}
       ></div>
     </>

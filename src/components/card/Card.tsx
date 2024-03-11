@@ -8,14 +8,45 @@ const Card = (props: {
   setCartInArray: Dispatch<React.SetStateAction<cartProductType[]>>;
   setRefresh: Dispatch<React.SetStateAction<boolean>>;
   cartCardData: cartProductType[];
+  setIsProductAdded: Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const { data, setCartInArray, setRefresh, cartCardData } = props;
+  const { data, setCartInArray, setRefresh, cartCardData, setIsProductAdded } =
+    props;
 
   const onHandleAddToCart = (element: cartProductType) => {
     setRefresh((prev: any) => !prev);
-    setCartInArray((prev: cartProductType[]) => [...prev, element]);
-    localStorage.setItem("cart", JSON.stringify([...cartCardData, element]));
-    alert("Added to cart");
+
+    const isFind = cartCardData.find((finded) => finded.id == element.id);
+
+    if (isFind) {
+      const prevQty: any = cartCardData.find(
+        (quantity) => quantity.id === element.id
+      );
+
+      const updatedQty = {
+        id: element.id,
+        name: element.name,
+        price: element.price,
+        image: element.image,
+        quantity: prevQty.quantity + element.quantity,
+      };
+      const finalArray = cartCardData.filter(
+        (product) => product.id !== element.id
+      );
+      finalArray.length > 0
+        ? localStorage.setItem(
+            "cart",
+            JSON.stringify([...finalArray, updatedQty])
+          )
+        : localStorage.setItem("cart", JSON.stringify([updatedQty]));
+
+      console.log(prevQty);
+    } else {
+      setCartInArray((prev: cartProductType[]) => [...prev, element]);
+      localStorage.setItem("cart", JSON.stringify([...cartCardData, element]));
+    }
+    setIsProductAdded(true);
+    setTimeout(() => setIsProductAdded(false), 1500);
   };
 
   return (
@@ -41,6 +72,10 @@ const Card = (props: {
                 name: data.fields.title,
                 price: data.fields.price,
                 image: data.fields.image.fields.file.url,
+                quantity: 1,
+                find: function (arg0: (quantity: any) => boolean): unknown {
+                  throw new Error("Function not implemented.");
+                },
               })
             }
           />

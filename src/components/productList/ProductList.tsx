@@ -8,8 +8,9 @@ const ProductList = (props: {
   setCartInArray: Dispatch<React.SetStateAction<cartProductType[]>>;
   setRefresh: Dispatch<React.SetStateAction<boolean>>;
   cartCardData: cartProductType[];
+  setIsProductAdded: Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const { setCartInArray, setRefresh, cartCardData } = props;
+  const { setCartInArray, setRefresh, cartCardData, setIsProductAdded } = props;
 
   const [productsData, setProductsData] = useState<productType[]>([]);
   useEffect(() => {
@@ -25,6 +26,7 @@ const ProductList = (props: {
           setCartInArray={setCartInArray}
           setRefresh={setRefresh}
           cartCardData={cartCardData}
+          setIsProductAdded={setIsProductAdded}
         />
       ))}
     </div>

@@ -16,8 +16,10 @@ export interface productType {
 }
 
 export interface cartProductType {
+  find(arg0: (quantity: any) => boolean): unknown;
   id: number;
   name: string;
   price: number;
   image: string;
+  quantity: number;
 }

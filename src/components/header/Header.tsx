@@ -10,8 +10,11 @@ const Header = (props: {
 
   let summ: number = 0;
   cartCardData &&
-    cartCardData.map((element: cartProductType) => (summ += element.price));
-
+    cartCardData.map((element: cartProductType) =>
+      element.quantity > 1
+        ? (summ += element.price * element.quantity)
+        : (summ += element.price)
+    );
   return (
     <div className="h-[70px] flex justify-between items-center bg-white p-5 z-50 fixed w-screen shadow shadow-firstColor ">
       <img
@@ -36,7 +39,7 @@ const Header = (props: {
           <div
             className={` ${
               cartCardData.length > 0 ? "absolute md:hidden" : "hidden"
-            } -top-2 -right-1 rounded-full bg-secondColor px-2 py-1 text-[10px] font-semibold group-hover:text-secondColor group-hover:bg-black transition-all duration-300`}
+            } -top-3 -right-1 rounded-full bg-secondColor px-2 py-1 text-[10px] font-semibold border-2 border-secondColor group-hover:text-black group-hover:border-black transition-all duration-300 cursor-pointer`}
           >
             {" "}
             {cartCardData.length}

@@ -15,7 +15,11 @@ const Cart = (props: {
   let summ: number = 0;
 
   cartCardData &&
-    cartCardData.map((element: cartProductType) => (summ += element.price));
+    cartCardData.map((element: cartProductType) =>
+      element.quantity > 1
+        ? (summ += element.price * element.quantity)
+        : (summ += element.price)
+    );
 
   const onClickClearCart = (text: string) => {
     if (text == "Delete") {
@@ -31,7 +35,7 @@ const Cart = (props: {
           openModal
             ? " right-0 "
             : " md:top-[70px] right-[-1000px] [transform:rotateX(360deg)] "
-        }  w-full min-h-[150px] top-[70px] max-h-[550px] md:w-[33vw] overflow-y-scroll bg-white absolute transition-all duration-1000 ease-in-out flex flex-col justify-center items-center gap-3 z-40 py-4 shadow shadow-secondColor`}
+        }  w-full min-h-[150px] top-[70px] max-h-[550px] md:w-[33vw] overflow-y-scroll bg-white absolute transition-all duration-1000 ease-in-out flex flex-col justify-center items-center gap-3 z-40 py-4 shadow shadow-secondColor rounded-b`}
       >
         {cartCardData.length > 0 ? (
           <>

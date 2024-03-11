@@ -3,6 +3,7 @@ import Header from "@/components/header";
 import Hero from "@/components/hero";
 import ProductSection from "@/components/productSection";
 import Cart from "@/components/cart";
+import PopUp from "@/components/popUp";
 import { cartProductType } from "@/mocks/types";
 import { useState, useEffect } from "react";
 
@@ -11,7 +12,7 @@ export default function Home() {
   const [cartInArray, setCartInArray] = useState<any>([]);
   const [refresh, setRefresh] = useState(false);
   const [cartCardData, setCartCardData] = useState<cartProductType[]>([]);
-  // const [searchedEl, setSearchedEl] = useState<string>();
+  const [isProductAdded, setIsProductAdded] = useState<boolean>(false);
 
   const onHandleChangeStatus = () => setOpenModal((prev) => !prev);
 
@@ -28,11 +29,12 @@ export default function Home() {
   }, [refresh]);
 
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col items-center">
       <Header
         onHandleChangeStatus={onHandleChangeStatus}
         cartCardData={cartCardData}
       />
+      <PopUp isProductAdded={isProductAdded} />
       <Hero />
       <Cart
         openModal={openModal}
@@ -45,8 +47,7 @@ export default function Home() {
         cartCardData={cartCardData}
         setCartInArray={setCartInArray}
         setRefresh={setRefresh}
-        // setSearchedEl={setSearchedEl}
-        // searchedEl={searchedEl}
+        setIsProductAdded={setIsProductAdded}
       />
     </main>
   );

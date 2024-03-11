@@ -26,8 +26,9 @@ const CardCart = (props: {
         <h3> {data.name}</h3>
         <h3>$ {data.price}</h3>
       </div>
+      <h3>qty: {data.quantity}</h3>
       <FaTrash
-        className="text-secondColor cursor-pointer transition-all duration-500 hover:text-black"
+        className="text-secondColor cursor-pointer transition-all duration-500 hover:text-black ml-2"
         onClick={onHandleDelete}
       />
     </div>

@@ -10,8 +10,9 @@ const ProductSection = (props: {
   setCartInArray: Dispatch<React.SetStateAction<cartProductType[]>>;
   setRefresh: Dispatch<React.SetStateAction<boolean>>;
   cartCardData: cartProductType[];
+  setIsProductAdded: Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const { setCartInArray, setRefresh, cartCardData } = props;
+  const { setCartInArray, setRefresh, cartCardData, setIsProductAdded } = props;
   const [openFilterModal, setOpenFilterModal] = useState<boolean>(false);
   return (
     <div className="flex flex-col gap-6 justify-center items-center bg-firstColor ">
@@ -21,11 +22,11 @@ const ProductSection = (props: {
           Store
         </span>
       </h3>
-      <Filter flexDirection="flex-row hidden md:flex" gap="gap-8" />
+      <Filter width={null} display="hidden md:flex" gap="gap-8" />
       <div className="flex justify-center gap-6 items-center w-[98vw] ">
         <SearchEl />
         <IoFilterCircleOutline
-          className="text-[40px] hover:text-secondColor cursor-pointer transition-all duration-500"
+          className="text-[40px] hover:text-secondColor cursor-pointer transition-all duration-300 md:hidden"
           onClick={() => setOpenFilterModal((prev) => !prev)}
         />
         <FilterModal
@@ -37,6 +38,7 @@ const ProductSection = (props: {
         setCartInArray={setCartInArray}
         setRefresh={setRefresh}
         cartCardData={cartCardData}
+        setIsProductAdded={setIsProductAdded}
       />
     </div>
   );
