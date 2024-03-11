@@ -23,7 +23,7 @@ const Header = (props: {
         src="https://ecommerce-test-bucket-2024.s3.eu-central-1.amazonaws.com/logo.svg"
         alt="logo"
       />
-      <div className="w-[18vw] md:w-[40vw] lg:w-[31vw] xl:w-[24vw] flex justify-between items-center md:mr-12 [&>*]:text-mainDeskFont [&>*]:cursor-pointer  ">
+      <div className="w-[18vw] md:w-[44vw] sm:w-[20vw]  lg:w-[33vw] xl:w-[25vw] flex justify-between items-center md:mr-12 [&>*]:text-mainDeskFont [&>*]:cursor-pointer  ">
         <h2
           className="flex gap-2 items-center hover:text-secondColor transition-all duration-300 "
           onClick={() => window.open("tel: +123 456 789")}
@@ -41,7 +41,7 @@ const Header = (props: {
           <div
             className={` ${
               cartCardData.length > 0 ? "absolute md:hidden" : "hidden"
-            } -top-3 -right-1 rounded-full bg-secondColor px-2 py-1 text-[10px] font-semibold border-2 border-secondColorStrong group-hover:text-black group-hover:border-black transition-all duration-300 cursor-pointer`}
+            } -top-2 -right-1 rounded-full bg-secondColor px-[6px] py-[2px] text-[12px] font-semibold border-2 border-secondColor group-hover:text-black group-hover:border-black transition-all duration-300 cursor-pointer`}
           >
             {" "}
             {cartCardData.length}

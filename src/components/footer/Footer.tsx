@@ -8,9 +8,9 @@ const Footer = () => {
         <img
           src="https://ecommerce-test-bucket-2024.s3.eu-central-1.amazonaws.com/logo.svg"
           alt="logo"
-          className=" text-red w-[50%] md:w-[30%] font-bold"
+          className=" text-red w-[70%] sm:w-[55%] md:w-[30%] font-bold"
         />
-        <div className=" flex flex-col gap-4 md:flex-row  md:gap-12 ">
+        <div className=" flex flex-col gap-4 md:flex-row  md:gap-10 ">
           <List
             itemName={["Home", "Chi siamo", "Contatti", "Lavora con noi"]}
           />
