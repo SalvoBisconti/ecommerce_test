@@ -29,7 +29,7 @@ export default function Home() {
   }, [refresh]);
 
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col items-center">
       <Header
         onHandleChangeStatus={onHandleChangeStatus}
         cartCardData={cartCardData}
