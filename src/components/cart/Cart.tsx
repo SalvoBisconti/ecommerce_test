@@ -11,7 +11,7 @@ const Cart = (props: {
 }) => {
   const { openModal, onHandleChangeStatus, cartCardData, setCartCardData } =
     props;
-  const buttonNames: string[] = ["Delete", "Buy"];
+  const buttonNames: string[] = ["Clear cart", "checkout"];
   let summ: number = 0;
 
   cartCardData &&
@@ -22,7 +22,7 @@ const Cart = (props: {
     );
 
   const onClickClearCart = (text: string) => {
-    if (text == "Delete") {
+    if (text == "Clear cart") {
       setCartCardData([]);
       localStorage.removeItem("cart");
     }
@@ -35,21 +35,25 @@ const Cart = (props: {
           openModal
             ? " right-0 "
             : " md:top-[70px] right-[-1000px] [transform:rotateX(360deg)] "
-        }  w-full min-h-[150px] top-[70px] max-h-[550px] md:w-[33vw] overflow-y-scroll bg-white absolute transition-all duration-1000 ease-in-out flex flex-col justify-center items-center gap-3 z-40 py-4 shadow shadow-secondColor rounded-b`}
+        }  w-full min-h-[150px] top-[70px] max-h-[550px] md:w-[33vw] overflow-y-scroll bg-white md:bg-[#fffffff2] absolute transition-all duration-1000 ease-in-out flex flex-col justify-center items-center gap-3 z-40 py-4 shadow shadow-secondColor rounded-b`}
       >
         {cartCardData.length > 0 ? (
           <>
-            {cartCardData.length > 0 &&
-              cartCardData.map((element: cartProductType, i: number) => (
-                <CardCart
-                  data={element}
-                  key={i}
-                  setCartCardData={setCartCardData}
-                  cartCardData={cartCardData}
-                />
-              ))}
+            <div className="w-full max-h-[500px] overflow-scroll">
+              {cartCardData.length > 0 &&
+                cartCardData.map((element: cartProductType, i: number) => (
+                  <CardCart
+                    data={element}
+                    key={i}
+                    setCartCardData={setCartCardData}
+                    cartCardData={cartCardData}
+                  />
+                ))}
+            </div>
 
-            <h3>Total: $ {summ.toFixed(2)}</h3>
+            <h3 className="text-mainDeskFont mt-6 ">
+              Total: $ {summ.toFixed(2)}
+            </h3>
             <div className="flex gap-4">
               {buttonNames.map((element, index) => (
                 <Button

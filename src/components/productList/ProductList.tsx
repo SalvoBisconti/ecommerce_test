@@ -5,12 +5,13 @@ import { productType } from "@/mocks/types";
 import { cartProductType } from "@/mocks/types";
 
 const ProductList = (props: {
-  setCartInArray: Dispatch<React.SetStateAction<cartProductType[]>>;
+  setCartCardData: Dispatch<React.SetStateAction<cartProductType[]>>;
   setRefresh: Dispatch<React.SetStateAction<boolean>>;
   cartCardData: cartProductType[];
   setIsProductAdded: Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const { setCartInArray, setRefresh, cartCardData, setIsProductAdded } = props;
+  const { setRefresh, cartCardData, setIsProductAdded, setCartCardData } =
+    props;
 
   const [productsData, setProductsData] = useState<productType[]>([]);
   useEffect(() => {
@@ -23,10 +24,10 @@ const ProductList = (props: {
         <Card
           data={element}
           key={element.sys.id}
-          setCartInArray={setCartInArray}
           setRefresh={setRefresh}
           cartCardData={cartCardData}
           setIsProductAdded={setIsProductAdded}
+          setCartCardData={setCartCardData}
         />
       ))}
     </div>

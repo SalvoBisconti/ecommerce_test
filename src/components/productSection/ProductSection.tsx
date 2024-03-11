@@ -7,12 +7,13 @@ import { IoFilterCircleOutline } from "react-icons/io5";
 import FilterModal from "../filterModal";
 
 const ProductSection = (props: {
-  setCartInArray: Dispatch<React.SetStateAction<cartProductType[]>>;
+  setCartCardData: Dispatch<React.SetStateAction<cartProductType[]>>;
   setRefresh: Dispatch<React.SetStateAction<boolean>>;
   cartCardData: cartProductType[];
   setIsProductAdded: Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const { setCartInArray, setRefresh, cartCardData, setIsProductAdded } = props;
+  const { setRefresh, cartCardData, setIsProductAdded, setCartCardData } =
+    props;
   const [openFilterModal, setOpenFilterModal] = useState<boolean>(false);
   return (
     <div className="flex flex-col gap-6 justify-center items-center bg-firstColor ">
@@ -35,7 +36,7 @@ const ProductSection = (props: {
         />
       </div>
       <ProductList
-        setCartInArray={setCartInArray}
+        setCartCardData={setCartCardData}
         setRefresh={setRefresh}
         cartCardData={cartCardData}
         setIsProductAdded={setIsProductAdded}

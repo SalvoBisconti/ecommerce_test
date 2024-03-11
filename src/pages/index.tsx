@@ -9,7 +9,6 @@ import { useState, useEffect } from "react";
 
 export default function Home() {
   const [openModal, setOpenModal] = useState<boolean>(false);
-  const [cartInArray, setCartInArray] = useState<any>([]);
   const [refresh, setRefresh] = useState(false);
   const [cartCardData, setCartCardData] = useState<cartProductType[]>([]);
   const [isProductAdded, setIsProductAdded] = useState<boolean>(false);
@@ -45,7 +44,7 @@ export default function Home() {
       <AboutSection />
       <ProductSection
         cartCardData={cartCardData}
-        setCartInArray={setCartInArray}
+        setCartCardData={setCartCardData}
         setRefresh={setRefresh}
         setIsProductAdded={setIsProductAdded}
       />

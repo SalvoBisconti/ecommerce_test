@@ -23,12 +23,16 @@ const CardCart = (props: {
         className="rounded-full h-[60px] w-[60px] object-cover "
       />
       <div className="flex flex-col grow pl-4">
-        <h3> {data.name}</h3>
+        <h3>
+          {" "}
+          {data.name[0].toLocaleUpperCase() +
+            data.name.substring(1, data.name.length)}
+        </h3>
         <h3>$ {data.price}</h3>
       </div>
       <h3>qty: {data.quantity}</h3>
       <FaTrash
-        className="text-secondColor cursor-pointer transition-all duration-500 hover:text-black ml-2"
+        className="text-secondColor cursor-pointer transition-all duration-1000 hover:text-black ml-2"
         onClick={onHandleDelete}
       />
     </div>

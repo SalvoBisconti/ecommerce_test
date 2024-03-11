@@ -6,7 +6,7 @@ const Filter = (props: {
   gap: string;
 }) => {
   const { display, width, gap } = props;
-  const filterName: string[] = ["All", "Option1", "Option2", "Option3"];
+  const filterName: string[] = ["All", "Option_1", "Option_2", "Option_3"];
 
   return (
     <div
