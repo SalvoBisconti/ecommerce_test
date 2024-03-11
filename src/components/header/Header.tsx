@@ -9,18 +9,6 @@ const Header = (props: {
 }) => {
   const { onHandleChangeStatus, cartCardData } = props;
 
-  const [scroll, setScroll] = useState<number>(0);
-  const onHandleScroll = () => {
-    const position = window.scrollY;
-    setScroll(position);
-  };
-  useEffect(() => {
-    window.addEventListener("scroll", onHandleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onHandleScroll);
-    };
-  }, []);
-
   let summ: number = 0;
   cartCardData &&
     cartCardData.map((element: cartProductType) =>
@@ -30,9 +18,7 @@ const Header = (props: {
     );
   return (
     <div
-      className={`${
-        scroll > 0 ? "h-[70px]" : "h-[90px]"
-      }  flex justify-between  items-center bg-white p-5 z-50 fixed w-screen shadow shadow-firstColor transition-all duration-500 `}
+      className={`h-[70px] flex justify-between  items-center bg-white p-5 z-50 fixed w-screen shadow shadow-firstColor transition-all duration-500 `}
     >
       <img
         src="https://ecommerce-test-bucket-2024.s3.eu-central-1.amazonaws.com/logo.svg"
