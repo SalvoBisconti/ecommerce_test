@@ -17,7 +17,7 @@ const Header = (props: {
     );
   return (
     <div
-      className={`h-[70px] flex justify-between  items-center bg-white p-5 z-50 fixed w-screen shadow shadow-firstColor transition-all duration-500 `}
+      className={`h-[70px] -top-[1px] right-0 flex justify-between  items-center bg-white p-5 z-50 fixed w-screen shadow shadow-firstColor transition-all duration-500 `}
     >
       <img
         src="https://ecommerce-test-bucket-2024.s3.eu-central-1.amazonaws.com/logo.svg"
