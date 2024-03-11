@@ -7,12 +7,24 @@ const CardCart = (props: {
   setCartCardData: Dispatch<React.SetStateAction<cartProductType[]>>;
   cartCardData: cartProductType[];
 }) => {
-  const { data, setCartCardData, cartCardData } = props;
+  const { data, setCartCardData } = props;
+
   const onHandleDelete = () => {
+    const cartDataDelete =
+      typeof window !== "undefined"
+        ? JSON.parse(localStorage.getItem("cart") || '""')
+        : [];
     setCartCardData(
-      cartCardData.filter((element: cartProductType) => element.id != data.id)
+      cartDataDelete.filter((element: cartProductType) => element.id != data.id)
     );
-    localStorage.setItem("cart", JSON.stringify(cartCardData));
+    localStorage.setItem(
+      "cart",
+      JSON.stringify(
+        cartDataDelete.filter(
+          (element: cartProductType) => element.id != data.id
+        )
+      )
+    );
   };
 
   return (
@@ -24,7 +36,6 @@ const CardCart = (props: {
       />
       <div className="flex flex-col grow pl-4">
         <h3>
-          {" "}
           {data.name[0].toLocaleUpperCase() +
             data.name.substring(1, data.name.length)}
         </h3>

@@ -1,7 +1,7 @@
 const Button = (props: {
   text: string;
-  fontSize: string;
-  textColor: string;
+  fontSize: string | null;
+  textColor: string | null;
   func: any | null;
 }) => {
   const { text, fontSize, textColor, func } = props;

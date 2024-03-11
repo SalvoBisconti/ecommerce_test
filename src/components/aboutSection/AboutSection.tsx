@@ -21,7 +21,7 @@ const AboutSection = () => {
           nostrum ipsum eveniet, adipisci consequuntur aperiam corporis sequi,
           dolor voluptas doloribus, iusto ducimus quidem nam! Harum.
         </p>
-        <Button text="Explore" fontSize="" textColor="" func={null} />
+        <Button text="Explore" fontSize={null} textColor={null} func={null} />
       </div>
     </div>
   );

@@ -48,9 +48,8 @@ const Card = (props: {
         );
       }
     } else {
-      setCartCardData((prev: cartProductType[]) => [element]);
+      setCartCardData([element]);
       localStorage.setItem("cart", JSON.stringify([element]));
-      console.log(element);
     }
 
     setIsProductAdded(true);
