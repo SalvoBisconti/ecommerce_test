@@ -67,7 +67,7 @@ const Header = (props: {
               ? "Empty cart"
               : `${cartCardData.length} ${
                   cartCardData.length == 1 ? "item" : "items"
-                } - ${summ} $`}
+                } - ${summ.toFixed(2)} $`}
           </span>
         </h2>
       </div>
