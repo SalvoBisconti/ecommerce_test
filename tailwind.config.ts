@@ -14,6 +14,7 @@ const config: Config = {
       colors: {
         firstColor: "#eeeeee",
         secondColor: "#f09d51",
+        secondColorStrong: "#cb8544",
       },
       fontSize: {
         mainMobFont: "1.1rem",

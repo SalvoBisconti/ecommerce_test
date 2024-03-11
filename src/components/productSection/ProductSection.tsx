@@ -16,7 +16,7 @@ const ProductSection = (props: {
     props;
   const [openFilterModal, setOpenFilterModal] = useState<boolean>(false);
   return (
-    <div className="flex flex-col gap-6 justify-center items-center bg-firstColor ">
+    <div className="flex flex-col gap-6 justify-center items-center bg-firstColor py-12 ">
       <h3 className="text-mobileTitle md:text-deskTitle font-bold">
         Our{" "}
         <span className="text-strongMobTitle md:text-strongDeskTitle font-black text-secondColor">

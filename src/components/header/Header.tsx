@@ -1,7 +1,6 @@
 import { FaPhone } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import { cartProductType } from "@/mocks/types";
-import { useEffect, useState } from "react";
 
 const Header = (props: {
   onHandleChangeStatus: any;
@@ -36,13 +35,13 @@ const Header = (props: {
           </span>
         </h2>
         <h2
-          className="flex gap-2 items-center md:border border-black p-2 rounded relative md:hover:bg-secondColor hover:border-secondColor hover:text-secondColor md:hover:text-white  transition-all duration-300 group "
+          className="flex gap-2 items-center md:border border-black p-2 rounded relative md:hover:bg-secondColor hover:border-secondColorStrong hover:text-secondColor md:hover:text-white  transition-all duration-300 group "
           onClick={onHandleChangeStatus}
         >
           <div
             className={` ${
               cartCardData.length > 0 ? "absolute md:hidden" : "hidden"
-            } -top-3 -right-1 rounded-full bg-secondColor px-2 py-1 text-[10px] font-semibold border-2 border-secondColor group-hover:text-black group-hover:border-black transition-all duration-300 cursor-pointer`}
+            } -top-3 -right-1 rounded-full bg-secondColor px-2 py-1 text-[10px] font-semibold border-2 border-secondColorStrong group-hover:text-black group-hover:border-black transition-all duration-300 cursor-pointer`}
           >
             {" "}
             {cartCardData.length}

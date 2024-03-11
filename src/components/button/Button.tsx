@@ -12,7 +12,7 @@ const Button = (props: {
         text == "checkout" && "text-secondColor "
       } ${
         text == "Clear cart"
-          ? "border-black hover:border-secondColor"
+          ? "border-black hover:border-secondColorStrong"
           : "border-secondColor"
       }`}
       onClick={func}

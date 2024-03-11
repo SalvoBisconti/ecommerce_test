@@ -4,6 +4,7 @@ import Hero from "@/components/hero";
 import ProductSection from "@/components/productSection";
 import Cart from "@/components/cart";
 import PopUp from "@/components/popUp";
+import Footer from "@/components/footer";
 import { cartProductType } from "@/mocks/types";
 import { useState, useEffect } from "react";
 
@@ -48,6 +49,7 @@ export default function Home() {
         setRefresh={setRefresh}
         setIsProductAdded={setIsProductAdded}
       />
+      <Footer />
     </main>
   );
 }
