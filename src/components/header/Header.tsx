@@ -1,12 +1,25 @@
 import { FaPhone } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import { cartProductType } from "@/mocks/types";
+import { useEffect, useState } from "react";
 
 const Header = (props: {
   onHandleChangeStatus: any;
   cartCardData: cartProductType[];
 }) => {
   const { onHandleChangeStatus, cartCardData } = props;
+
+  const [scroll, setScroll] = useState<number>(0);
+  const onHandleScroll = () => {
+    const position = window.scrollY;
+    setScroll(position);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", onHandleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onHandleScroll);
+    };
+  }, []);
 
   let summ: number = 0;
   cartCardData &&
@@ -16,12 +29,16 @@ const Header = (props: {
         : (summ += element.price)
     );
   return (
-    <div className="h-[70px] flex justify-between items-center bg-white p-5 z-50 fixed w-screen shadow shadow-firstColor ">
+    <div
+      className={`${
+        scroll > 0 ? "h-[75px]" : "h-[95px]"
+      }  flex justify-between  items-center bg-white p-5 z-50 fixed w-screen shadow shadow-firstColor transition-all duration-500 `}
+    >
       <img
         src="https://ecommerce-test-bucket-2024.s3.eu-central-1.amazonaws.com/logo.svg"
         alt="logo"
       />
-      <div className="w-[18vw] md:w-[35vw] lg:w-[26vw] xl:w-[24vw] flex justify-between items-center md:mr-12 [&>*]:text-mainDeskFont [&>*]:cursor-pointer ">
+      <div className="w-[18vw] md:w-[40vw] lg:w-[31vw] xl:w-[24vw] flex justify-between items-center md:mr-12 [&>*]:text-mainDeskFont [&>*]:cursor-pointer  ">
         <h2
           className="flex gap-2 items-center hover:text-secondColor transition-all duration-300 "
           onClick={() => window.open("tel: +123 456 789")}
