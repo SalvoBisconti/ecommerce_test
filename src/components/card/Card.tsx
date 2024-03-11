@@ -6,7 +6,7 @@ import { cartProductType } from "@/mocks/types";
 const Card = (props: {
   data: productType;
   setCartInArray: Dispatch<React.SetStateAction<cartProductType[]>>;
-  setRefresh: Dispatch<React.SetStateAction<any>>;
+  setRefresh: Dispatch<React.SetStateAction<boolean>>;
   cartCardData: cartProductType[];
 }) => {
   const { data, setCartInArray, setRefresh, cartCardData } = props;

@@ -8,7 +8,7 @@ const SearchEl = () => {
       </div>
       <input
         type="text"
-        className="outline-none text-slate-500 "
+        className="outline-none text-slate-500 w-full "
         placeholder="Item..."
       />
     </div>
