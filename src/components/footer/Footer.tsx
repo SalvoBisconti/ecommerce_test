@@ -10,7 +10,7 @@ const Footer = () => {
           alt="logo"
           className=" text-red w-[50%] md:w-[30%] font-bold"
         />
-        <div className=" flex flex-col gap-4 md:flex-row">
+        <div className=" flex flex-col gap-4 md:flex-row  md:gap-12 ">
           <List
             itemName={["Home", "Chi siamo", "Contatti", "Lavora con noi"]}
           />
