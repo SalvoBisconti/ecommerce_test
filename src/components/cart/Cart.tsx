@@ -34,8 +34,8 @@ const Cart = (props: {
         className={`${
           openModal
             ? " right-0 "
-            : " md:top-[70px] right-[-1000px] [transform:rotateX(360deg)] "
-        }  w-full min-h-[150px] top-[70px] max-h-[550px] md:w-[33vw] overflow-y-scroll bg-white md:bg-[#fffffff2] absolute transition-all duration-1000 ease-in-out flex flex-col justify-center items-center gap-3 z-40 py-4 shadow shadow-secondColor rounded-b`}
+            : " md:top-[68px] right-[-1000px] [transform:rotateX(360deg)] "
+        }  w-full min-h-[150px] top-[68px] max-h-[550px] md:w-[33vw] overflow-y-scroll bg-white md:bg-[#fffffff2] absolute transition-all duration-1000 ease-in-out flex flex-col justify-center items-center gap-3 z-40 py-4 shadow shadow-secondColor rounded-b`}
       >
         {cartCardData.length > 0 ? (
           <>
