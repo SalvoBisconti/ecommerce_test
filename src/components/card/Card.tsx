@@ -72,7 +72,7 @@ const Card = (props: {
         </h3>
         <h3> $ {data.fields.price}</h3>
         <div
-          className="absolute -top-10 right-0 rounded-tl-[12px] bg-secondColor p-3 cursor-pointer transition-all duration-500 hover:text-white  "
+          className="absolute -top-[54px] right-0 rounded-tl-[12px] bg-secondColor p-4 cursor-pointer transition-all duration-500 hover:text-white  "
           onClick={() =>
             onHandleAddToCart({
               id: data.sys.id,
@@ -83,7 +83,7 @@ const Card = (props: {
             })
           }
         >
-          <FaCartShopping />
+          <FaCartShopping className="text-[22px]" />
         </div>
       </div>
     </div>

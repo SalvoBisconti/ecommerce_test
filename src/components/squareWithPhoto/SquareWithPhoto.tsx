@@ -23,9 +23,9 @@ const SquareWithPhoto = (props: { url: string }) => {
     }
   }, [scrollPosition]);
 
-  const translateX = `${0 + (scrollPosition - 100) / 40}%`;
+  const translateX = `${0 + (scrollPosition - 100) / 45}%`;
 
-  const translateY = `${0 + (scrollPosition - 100) / 60}%`;
+  const translateY = `${0 + (scrollPosition - 100) / 50}%`;
 
   return (
     <>
