@@ -43,9 +43,9 @@ const AboutSection = () => {
             className="block relative object-cover z-20 w-[300px] h-[260px] md:w-[360px] md:h-[300px]"
           />
           <div
-            style={{
-              transform: `translateX(${translateX}) translateY(${translateY}) `,
-            }}
+            // style={{
+            //   transform: `translateX(${translateX}) translateY(${translateY}) `,
+            // }}
             className={`absolute -top-12 right-20 border-4 border-secondColor w-[300px] h-[260px] md:w-[360px] md:h-[300px] z-10 animate-slideIn`}
           ></div>
         </div>
