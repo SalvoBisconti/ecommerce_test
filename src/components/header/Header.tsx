@@ -35,7 +35,7 @@ const Header = (props: {
           </span>
         </h2>
         <h2
-          className="flex gap-2 items-center md:border border-black p-2 rounded relative md:hover:bg-secondColor hover:border-secondColorStrong hover:text-secondColor md:hover:text-white  transition-all duration-300 group "
+          className="flex gap-2 items-center md:border border-black p-2 px-4 rounded relative md:hover:bg-secondColor hover:border-secondColorStrong hover:text-secondColor md:hover:text-white  transition-all duration-300 group "
           onClick={onHandleChangeStatus}
         >
           <div

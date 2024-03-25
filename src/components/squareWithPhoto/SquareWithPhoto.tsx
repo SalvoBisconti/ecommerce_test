@@ -21,15 +21,11 @@ const SquareWithPhoto = (props: { url: string }) => {
     if (scrollPosition >= 100 && !animationStarted) {
       setAnimationStarted(true);
     }
-  }, [scrollPosition, animationStarted]);
+  }, [scrollPosition]);
 
-  const translateX = animationStarted
-    ? `${0 + (scrollPosition - 100) / 40}%`
-    : "50%";
+  const translateX = `${0 + (scrollPosition - 100) / 40}%`;
 
-  const translateY = animationStarted
-    ? `${0 + (scrollPosition - 100) / 60}%`
-    : "50%";
+  const translateY = `${0 + (scrollPosition - 100) / 60}%`;
 
   return (
     <>
